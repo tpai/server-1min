@@ -6,11 +6,13 @@ const { port } = require(path.resolve(__dirname, 'args'));
 
 function WebServer (routes = []) {
   routes.map(({
-    method = 'GET',
+    method: requestMethod = 'get',
     path = '/',
     callbacks,
   }) => {
-    app[method.toLowerCase()](path, ...callbacks);
+    const method = requestMethod.toLowerCase();
+    const options = [].concat([path], callbacks);
+    app[method](...options);
   });
 }
 
