@@ -10,7 +10,7 @@ Launch node server in 1 minute.
 
 ## Usage
 
-Start webhook server with custom routing rules
+Start server with custom routing rules
 
 ```
 npx server-1min -f $(pwd)/routes.js

@@ -1,6 +1,6 @@
 {
   "name": "server-1min",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "bin": "exec.js",
   "main": "index.js",
   "author": "Tony Pai <tony77794@gmail.com>",
