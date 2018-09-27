@@ -13,7 +13,7 @@ Launch node server in 1 minute.
 Start webhook server with custom routing rules
 
 ```
-npx server-1min -f ./routes.js
+npx server-1min -f $(pwd)/routes.js
 ```
 
 Start server with specific port
