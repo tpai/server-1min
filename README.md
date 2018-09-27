@@ -45,7 +45,7 @@ module.exports = [{
 }];
 ```
 
-Webhook
+Webhook inspector
 
 ```js
 const util = require('util');
@@ -56,10 +56,10 @@ module.exports = [{
   method: 'POST',
   path: '/webhook',
   callbacks: [
-    jsonParser(),
+    jsonParser,
     (req, res, next) => {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
       next();
     },
     (req, res) => {
@@ -82,17 +82,18 @@ module.exports = [{
   callbacks: [
     fileUpload(),
     (req, res, next) => {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
       next();
     },
     (req, res) => {
-      if (!req.files)
+      if (!req.files) {
         return res.status(400).send('No files were uploaded.');
+      }
 
-      let file = req.files.file;
+      const { file } = req.files;
 
-      file.mv(path.resolve(__dirname, 'image.jpg'), (err) => {
+      file.mv(path.resolve(__dirname, file.name), (err) => {
         if (err)
           return res.status(500).send(err);
 
