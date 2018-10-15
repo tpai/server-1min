@@ -1,25 +1,19 @@
 # 1 Minute Server
 
-Launch node server in 1 minute.
+Launch node server instantly with one line command.
 
 ## Features
 
 - No more complex server code.
 - Only need to define routing rules.
-- Support NPX
+- Keep your working directory clean.
 
 ## Usage
 
-Start server with custom routing rules
+Start server with custom routing rules and serve at port 8080.
 
 ```
-npx server-1min -f $(pwd)/routes.js
-```
-
-Start server with specific port
-
-```
-npx server-1min -p 8080
+npx server-1min -p 8080 -f $(pwd)/routes.js
 ```
 
 ## Samples
